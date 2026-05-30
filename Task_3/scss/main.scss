@@ -1,0 +1,29 @@
+* {
+box-sizing: border-box;
+}
+
+@mixin dialogbox($backgroundcolor, $boxwidth) {
+background-color: $backgroundcolor;
+width: $boxwidth;
+padding: 10px;
+border: 1px solid black;
+margin: 40px auto;
+position: relative;
+
+  &::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  background: $backgroundcolor;
+  position: absolute;
+  rotate: 45deg;
+  top: -6px;
+  left: $boxwidth / 2 - 6px;
+}
+}
+
+.dialog {
+@include dialogbox(green, 400px)
+}
